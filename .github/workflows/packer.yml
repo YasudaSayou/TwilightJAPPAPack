@@ -1,0 +1,17 @@
+name: Packer
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - run: zip -r9 TwilightJAPPAPack.zip pack.mcmeta pack.png assets
+
+      - uses: actions/upload-artifact@v6
+        with: 
+          name: Resource-Pack
+          path: TwilightJAPPAPack.zip
